@@ -51,14 +51,6 @@ class BibleList extends React.Component {
     componentDidMount(){
         this.props.fetchbibles()
     }
-
-    handleClickOpen = () => {
-        this.setState({ open: true });
-    };
-
-    handleClose = () => {
-        this.setState({ open: false });
-    };
       
     onchange = e => {
         this.setState({ search: e.target.value })
@@ -83,9 +75,6 @@ class BibleList extends React.Component {
                 Baca
                 </Button>
             </Link>
-                <Button color="grey">
-                Edit
-                </Button>
             </CardActions>
             </Card>
         </Grid>
@@ -128,32 +117,6 @@ class BibleList extends React.Component {
                         }
                     </Section>
                 </div>
-            <Dialog
-            open={this.state.open}
-            TransitionComponent={Transition}
-            keepMounted
-            onClose={this.handleClose}
-            aria-labelledby="alert-dialog-slide-title"
-            aria-describedby="alert-dialog-slide-description"
-            >
-            <DialogTitle id="alert-dialog-slide-title">
-                {this.state.bible.name}
-            </DialogTitle>
-            <DialogContent>
-                <DialogContentText id="alert-dialog-slide-description">
-                Let Google help apps determine location. This means sending anonymous location data to
-                Google, even when no apps are running.
-                </DialogContentText>
-            </DialogContent>
-            <DialogActions>
-                <Button onClick={this.handleClose} color="primary">
-                Disagree
-                </Button>
-                <Button onClick={this.handleClose} color="primary">
-                Agree
-                </Button>
-            </DialogActions>
-            </Dialog>
             </div>
         )
     }
